@@ -69,7 +69,6 @@ module Make (R : Intf.Ring) : Intf.Mat with module R = R = struct
     { m with data }
 
   let%test "get_row/set_row" =
-    let () = assert false in
     let m = create ~rows:3 ~cols:3 in
     let r = Row.set Row.zero 1 R.one in
     let m = set_row 1 r m in
@@ -316,3 +315,8 @@ module Make (R : Intf.Ring) : Intf.Mat with module R = R = struct
      * let (.%[;..]<-) m r c v = set ~row:r ~col:c m v *)
   end
 end
+
+let%test_module _ =
+  ( module struct
+    module Mat = Make (Rational)
+  end )
