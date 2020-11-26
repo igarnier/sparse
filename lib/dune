@@ -1,0 +1,6 @@
+(library
+ (public_name sparse)
+ (name sparse)
+ (libraries zarith)
+ (preprocess (pps ppx_inline_test))
+)

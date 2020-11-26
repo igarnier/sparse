@@ -1,0 +1,18 @@
+opam-version: "2.0"
+maintainer: "ilias.garnier@nomadic-labs.com"
+authors: [ "Nomadic Labs" ]
+homepage: "https://github.com/igarnier/sparse"
+bug-reports: "https://github.com/igarnier/sparse/issues"
+dev-repo: "git+https://gitlab.com/igarnier/sparse.git"
+license: "MIT"
+depends: [
+  "ocaml" { >= "4.08" }
+  "dune" { >= "1.7" }
+  "zarith"
+  "ppx_inline_test" { with-test }
+]
+build: [
+  ["dune" "build" "-p" name "-j" jobs]
+  ["dune" "runtest" "-p" name "-j" jobs] {with-test}
+]
+synopsis: "Sparse vectors and matrices over arbitrary rings"
